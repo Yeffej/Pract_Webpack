@@ -1,5 +1,5 @@
-import Template from './templates/Template.js';
-import "./styles/main.css";
+import Template from '@templates/Template.js';
+import "@styles/main.css";
 
 
 console.log('hola');

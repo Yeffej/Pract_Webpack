@@ -1,9 +1,14 @@
-@import "https://fonts.googleapis.com/css?family=Ubuntu:300,400,500";
-
 html {
 	font-family: sans-serif;
 	-ms-text-size-adjust: 100%;
 	-webkit-text-size-adjust: 100%
+}
+@font-face {
+	font-family: Ubuntu;
+	src: url("@fonts/ubuntu-regular.woff2"), format("woff2")
+		 url("@fonts/ubuntu-regular.woff"), format("woff");
+	font-weight: 400;
+	font-style: normal;
 }
 
 body {
@@ -239,7 +244,7 @@ body {
 	position: relative;
 	padding: 20px 0;
 	width: 100%;
-	background: #fff;
+	background: #747474;
 	border-radius: 3px;
 	box-shadow: 0 0 1px rgba(0, 0, 0, .5);
 	overflow: hidden;
@@ -254,8 +259,7 @@ body {
 	width: 100%;
 	height: 130px;
 	top: 0;
-	background: #f9f9f9;
-	border-bottom: 1px solid rgba(0, 0, 0, .15);
+	background: #121212;
 	z-index: -1
 }
 
@@ -276,13 +280,13 @@ body {
 }
 
 .card_title {
-	color: #999;
+	color: #fff;
 	font-size: 18px;
 	margin: 0
 }
 
 .card_value {
-	color: #2c2e31;
+	color: #000;
 	font-size: 38px;
 	margin: 5px;
 	text-transform: capitalize
@@ -290,6 +294,7 @@ body {
 
 .card ul {
   list-style-type: none;
+  color: #f3f0f0;
 }
 
 .card li {
