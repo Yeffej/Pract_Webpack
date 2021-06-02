@@ -2,8 +2,9 @@ const path = require("path");
 const htmlWebpackPlugin = require("html-webpack-plugin");
 const miniCssExtract = require("mini-css-extract-plugin")
 const copyPlugin = require("copy-webpack-plugin")
-const cssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const DotEnv = require("dotenv-webpack");
+const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer")
+
 
 /** @type {import('webpack').Configuration} */
 
@@ -13,9 +14,9 @@ module.exports = {
         path: path.resolve(__dirname, "dist"),
         filename: "Main.js",
         assetModuleFilename: "Images/[hash][ext]",
-        clean: true
     },
-    mode: "production",
+    mode: "development",
+    devtool: "source-map",
     resolve: {
         extensions: [".js"],
         alias: {
@@ -53,10 +54,6 @@ module.exports = {
             }
         ]
     },
-    optimization: {
-        minimize: true,
-        minimizer: [ `...`, new cssMinimizerPlugin()]
-    },
     plugins: [
         new htmlWebpackPlugin({
             inject: true,
@@ -73,5 +70,13 @@ module.exports = {
             ]
         }),
         new DotEnv(),
-    ]
+        new BundleAnalyzerPlugin()
+    ],
+    devServer: {
+        contentBase: path.join(__dirname, "dist"),
+        compress: true,
+        historyApiFallback: true,
+        open: true,
+        port: 3006
+    }
 }
